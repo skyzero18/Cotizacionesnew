@@ -1,6 +1,6 @@
+<p *ngIf="cargando">Cargando datos...</p>
 
-
-<table class="exchange-table" >
+<table *ngIf="!cargando && divisas.length > 0" class="exchange-table">
   <thead>
     <tr>
       <th>DIVISAS</th>
@@ -8,5 +8,13 @@
       <th>VENTA</th>
     </tr>
   </thead>
-
+  <tbody>
+    <tr *ngFor="let divisa of divisas">
+      <td>{{ divisa.nombre }}</td>
+      <td>{{ divisa.compra }}</td>
+      <td>{{ divisa.venta }}</td>
+    </tr>
+  </tbody>
 </table>
+
+<p *ngIf="!cargando && divisas.length === 0">No hay divisas activas disponibles.</p>
