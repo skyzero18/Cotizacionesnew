@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Api {
-private readonly baseUrl = 'https://cotizacionesdefi.com';
+private readonly baseUrl = 'https://api.escuelajs.co/api/v1';
 
   constructor(private http: HttpClient) {}
 

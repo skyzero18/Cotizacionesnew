@@ -25,7 +25,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: var(--fuente-principal);
-  background-image: url('assets/img/web2.png');
+  background-color: #000000;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
