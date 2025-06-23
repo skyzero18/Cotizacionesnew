@@ -18,6 +18,31 @@
 .product-card:hover {
   transform: scale(1.03);
 }
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  flex-wrap: wrap; /* Para que se acomoden en pantallas chicas */
+}
+
+.search-input {
+  flex: 2;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.category-select {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 160px;
+}
 
 .image-container {
   position: relative;

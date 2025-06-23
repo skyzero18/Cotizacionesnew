@@ -1,15 +1,24 @@
 <div class="search-bar">
   <input
     type="text"
-    placeholder="Buscar..."
+    class="search-input"
+    placeholder="Buscar por nombre o slug..."
     [(ngModel)]="terminoBusqueda"
     (input)="filtrarProductos()"
   />
-  <select [(ngModel)]="campoBusqueda" (change)="filtrarProductos()">
-    <option value="title">Nombre</option>
-    <option value="slug">Slug</option>
+
+  <select
+    class="category-select"
+    [(ngModel)]="categoriaSeleccionada"
+    (change)="filtrarProductos()"
+  >
+    <option value="">Todas las categorías</option>
+    <option *ngFor="let cat of categorias" [value]="cat.slug">
+      {{ cat.name }}
+    </option>
   </select>
 </div>
+
 
 <p *ngIf="cargando">Cargando productos...</p>
 

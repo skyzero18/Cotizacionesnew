@@ -34,25 +34,6 @@ html, body {
   flex-direction: column;
 }
 
-/* ============================
-   HEADER
-============================ */
-.header {
-  background: linear-gradient(to top, var(--color-secundario), #135764);
-  color: var(--color-texto);
-  width: 100%;
-  position: fixed;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header h1 {
-  font-size: 23px;
-  margin: 20px 0;
-  text-align: center;
-}
 
 /* ============================
    TEXTO DESPLAZABLE

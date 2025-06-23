@@ -12,19 +12,22 @@ import { FormsModule } from '@angular/forms';
 export class DivisaTable {
    productos: any[] = [];
   productosFiltrados: any[] = [];
+  categorias: any[] = [];
   cargando = false;
 
   terminoBusqueda: string = '';
   campoBusqueda: 'title' | 'slug' = 'title';
+  categoriaSeleccionada: string = '';
 
   constructor(private api: Api) {}
 
   ngOnInit() {
     this.cargando = true;
+
     this.api.get<any[]>('products').subscribe({
       next: (data) => {
         this.productos = data;
-        this.productosFiltrados = data; // inicial sin filtro
+        this.productosFiltrados = data;
         this.cargando = false;
       },
       error: (e) => {
@@ -32,19 +35,30 @@ export class DivisaTable {
         this.cargando = false;
       }
     });
+
+    this.api.get<any[]>('categories').subscribe({
+      next: (data) => {
+        this.categorias = data;
+      },
+      error: (e) => {
+        console.error('Error al obtener categorías:', e);
+      }
+    });
   }
 
   filtrarProductos() {
     const term = this.terminoBusqueda.trim().toLowerCase();
 
-    if (!term) {
-      this.productosFiltrados = this.productos;
-      return;
-    }
-
     this.productosFiltrados = this.productos.filter(prod => {
-      const campo = (prod[this.campoBusqueda] || '').toString().toLowerCase();
-      return campo.includes(term);
+      const coincideBusqueda = term
+        ? prod.title.toLowerCase().includes(term) || prod.slug.toLowerCase().includes(term)
+        : true;
+
+      const coincideCategoria = this.categoriaSeleccionada
+        ? prod.category?.slug === this.categoriaSeleccionada
+        : true;
+
+      return coincideBusqueda && coincideCategoria;
     });
   }
 }

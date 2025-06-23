@@ -25,7 +25,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: var(--fuente-principal);
-  background-color: #000000;
+  background-color: #f1cece;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -38,7 +38,7 @@ html, body {
    HEADER
 ============================ */
 .header {
-  background: linear-gradient(to top, var(--color-secundario), #135764);
+  background-color: var(--color-primario);
   color: var(--color-texto);
   width: 100%;
   position: fixed;
@@ -47,6 +47,7 @@ html, body {
   justify-content: center;
   align-items: center;
 }
+
 
 .header h1 {
   font-size: 23px;
@@ -264,25 +265,69 @@ select, input {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 /* ============================
-   FOOTER
+   FOOTER MEJORADO
 ============================ */
 footer {
   background-color: var(--color-primario);
-  color: white;
+  color: var(--color-texto);
+  padding: 30px 20px;
   text-align: center;
-  padding: 0;
+  margin-top: 40px;
+  font-size: 16px;
+  box-shadow: 0 -2px 8px var(--color-sombra);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-footer a {
+footer .footer-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #e2e2e2;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+.footer-section ul li a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-footer a:hover {
-  text-decoration: underline;
+.footer-section ul li a:hover {
+  color: #cccccc;
 }
+
+footer .copyright {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
 
 /* ============================
    WHATSAPP FLOAT BUTTON
